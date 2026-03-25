@@ -28,9 +28,5 @@ def create_movie(sender, instance, created, **kwargs):
 def raiting_update(sender,instance,**kwargs):
     if instance.raiting > 5:
         instance.raiting = 5
-        
-    if instance.raiting < 0 :
-        instance.raiting = 5
-        
-    
-        
+    elif instance.raiting < 0:
+        instance.raiting = 0
