@@ -1,5 +1,5 @@
 import os 
-from django.db.models.signals import post_delete
+from django.db.models.signals import *
 from django.dispatch import receiver
 
 from .models import Movie
@@ -13,3 +13,11 @@ def delete_movie(sender,instance,**kwargs):
     if instance.trailir_video:
         if os.path.isfile(instance.trailir_video.path):
             os.remove(instance.trailir_vidio.path)
+        
+        
+@receiver(post_save, sender = Movie )
+def create_movie(sender,instance,created,**kwargs):
+    if created:
+        print(f"Создан фильм {instance.title}")
+    else:
+        print(f"Обновлен фильм {instance.title}")
