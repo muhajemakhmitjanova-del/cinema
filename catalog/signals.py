@@ -15,9 +15,22 @@ def delete_movie(sender,instance,**kwargs):
             os.remove(instance.trailir_vidio.path)
         
         
-@receiver(post_save, sender = Movie )
-def create_movie(sender,instance,created,**kwargs):
+@receiver(post_save, sender =Movie)
+def create_movie(sender, instance, created, **kwargs):
     if created:
         print(f"Создан фильм {instance.title}")
     else:
         print(f"Обновлен фильм {instance.title}")
+        
+        
+        
+@receiver(pre_save,sender = Movie)
+def raiting_update(sender,instance,**kwargs):
+    if instance.raiting > 5:
+        instance.raiting = 5
+        
+    if instance.raiting < 0 :
+        instance.raiting = 5
+        
+    
+        
