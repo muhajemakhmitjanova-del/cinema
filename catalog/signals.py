@@ -18,15 +18,19 @@ def delete_movie(sender,instance,**kwargs):
 @receiver(post_save, sender =Movie)
 def create_movie(sender, instance, created, **kwargs):
     if created:
-        print(f"Создан фильм {instance.title}")
+        print(f"Создан фильм {instance.name}")
     else:
-        print(f"Обновлен фильм {instance.title}")
+        print(f"Обновлен фильм {instance.name}")
         
         
         
-@receiver(pre_save,sender = Movie)
+@receiver(pre_save, sender = Movie)
 def raiting_update(sender,instance,**kwargs):
     if instance.raiting > 5:
         instance.raiting = 5
-    elif instance.raiting < 0:
-        instance.raiting = 0
+        
+    elif instance.raiting < 0 :
+        instance.raiting = 5
+        
+    
+        
