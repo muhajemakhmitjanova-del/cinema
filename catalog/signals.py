@@ -6,7 +6,7 @@ from .models import Movie
 
 @receiver(post_delete,sender=Movie )
 def delete_movie(sender,instance,**kwargs):
-    if instance.imge:
+    if instance.image:
         if os.path.isfile(instance.path):
             os.remove(instance.image.path)
             
