@@ -18,3 +18,13 @@ class CategorySerializer(serializers.ModelSerializer):
             'name', 'category', 'genre', 'raiting', 'description',
             'image', 'directed_by', 'trailir_video', 'country', 'age_rating'
         )
+        
+        
+        
+class GenreSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = Category
+        fields = (
+            'name', 'category', 'genre', 'raiting', 'description',
+            'image', 'directed_by', 'trailir_video', 'country', 'age_rating'
+        )
