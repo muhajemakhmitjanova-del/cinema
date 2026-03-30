@@ -29,7 +29,7 @@ def raiting_update(sender,instance,**kwargs):
     if instance.raiting > 5:
         instance.raiting = 5
         
-    elif instance.raiting < 0 :
+    elif instance.raiting < 5:
         instance.raiting = 5
         
     
