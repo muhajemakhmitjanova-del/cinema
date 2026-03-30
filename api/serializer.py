@@ -15,16 +15,14 @@ class CategorySerializer(serializers.ModelSerializer):
     class Meta:
         model = Category
         fields = (
-            'name', 'category', 'genre', 'raiting', 'description',
-            'image', 'directed_by', 'trailir_video', 'country', 'age_rating'
+            'name', 'slug',
         )
         
         
         
 class GenreSerializer(serializers.ModelSerializer):
     class Meta:
-        model = Category
+        model = Genre
         fields = (
-            'name', 'category', 'genre', 'raiting', 'description',
-            'image', 'directed_by', 'trailir_video', 'country', 'age_rating'
+            'name',
         )

@@ -7,7 +7,7 @@ from rest_framework.decorators import api_view
 
 @api_view(['GET',"POST"])
 def movie_views(request):
-    if request.medhod == "GET":
+    if request.method == "GET":
         movi_list = Movie.objects.all()
         serializer = MovieSerializer(movi_list,many= True)
         return Response(serializer.data)
@@ -20,7 +20,7 @@ def movie_views(request):
     
 @api_view(['GET',"POST"])
 def category_views(request):
-    if request.medhod == "GET":
+    if request.method == "GET":
         category_list = Category.objects.all()
         serializer = CategorySerializer(category_list,many= True)
         return Response(serializer.data)
@@ -33,7 +33,7 @@ def category_views(request):
     
 @api_view(['GET',"POST"])
 def genre_views(request):
-    if request.medhod == "GET":
+    if request.method == "GET":
         genre_list = Genre.objects.all()
         serializer = GenreSerializer(genre_list,many= True)
         return Response(serializer.data)
