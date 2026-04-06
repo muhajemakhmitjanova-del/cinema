@@ -1,0 +1,13 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+<h2>{% if is_edit %}Редактировать{% else %}Добавить{% endif %} фильм</h2>
+
+<form method="post" enctype="multipart/form-data">
+    {% csrf_token %}
+    {{ form.as_div }}
+    <button type="submit" class="btn btn-primary">{% if is_edit %}Сохранить{% else %}Добавить{% endif %}</button>
+    </form>
+
+{% endblock content %}

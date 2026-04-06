@@ -9,10 +9,10 @@ from rest_framework.decorators import api_view
 def movie_views(request):
     if request.method == "GET":
         movi_list = Movie.objects.all()
-        serializer = MovieSerializer(movi_list,many= True)
+        serializer = Movieserializer(movi_list,many= True)
         return Response(serializer.data)
     elif request.method == "POST":
-        serializer = MovieSerializer(data = request.data)
+        serializer = Movieserializer(data = request.data)
         if serializer.is_valid():
             serializer.save()
             return Response(serializer.data,status = 201)
@@ -53,11 +53,11 @@ def movie_detail_views(request, id):
         return Response(status=404)
 
     if request.method == "GET":
-        serializer = MovieSerializer(movie)
+        serializer = Movieserializer(movie)
         return Response(serializer.data)
 
     if request.method == "PUT":
-        serializer = MovieSerializer(movie, data=request.data)
+        serializer = Movieserializer(movie, data=request.data)
         if serializer.is_valid():
             serializer.save()
             return Response(serializer.data)
@@ -100,11 +100,11 @@ def genre_detail_views(request, id):
         return Response(status=404)
 
     if request.method == "GET":
-        serializer = MovieSerializer(movie)
+        serializer = Movieserializer(movie)
         return Response(serializer.data)
 
     if request.method == "PUT":
-        serializer = MovieSerializer(movie, data=request.data)
+        serializer = Movieserializer(movie, data=request.data)
         if serializer.is_valid():
             serializer.save()
             return Response(serializer.data)
