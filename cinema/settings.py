@@ -30,6 +30,7 @@ ALLOWED_HOSTS = ["*"]
 
 
 # Application definition
+AUTH_USER_MODEL = 'users.User'
 
 INSTALLED_APPS = [
     'django.contrib.admin',
@@ -39,8 +40,10 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'catalog',
+    'users',
     'rest_framework',
-    'drf_yasg'
+    'drf_yasg',
+   
     
 ]
 

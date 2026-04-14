@@ -32,4 +32,6 @@ class MovieAdmin(admin.ModelAdmin):
 
 @admin.register(Genre)
 class GenreAdmin(admin.ModelAdmin):
-    pass
+    list_display = ['id','name']
+    search_fields = ['name',]
+    ordering = ['id']
